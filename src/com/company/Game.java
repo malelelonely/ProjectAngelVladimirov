@@ -2,7 +2,7 @@ import java.util.*;
 class Game {
     public static void main(String args[]) {
         Scanner in =new Scanner(System.in);
-        System.out.println("Game Bull and Cows :");
+        System.out.println("Game Bulls and Cows :");
         System.out.println("______________________");
         System.out.print("\nEnter name for first player : ");
         String playerOne = in.next();
@@ -44,17 +44,17 @@ class Game {
     public static void playGame(String[]players){
         Scanner in = new Scanner(System.in);
         final String target = getNumber();
-        System.out.println("You started the game  \"Bull and Cows\".");
+        System.out.println("You started the game  \"Bulls and Cows\".");
 
         for (int i = 1; i <= 30; i++) {
             int player = i % 2;
             System.out.print(i+". ");
-            System.out.println(players[player] + " is your turn");
+            System.out.println(players[player] + " is your turn :");
             boolean currentPlayerMove = true;
             String guess = in.next();
             int feedback = feedback(target, guess);
             System.out.println(guess+" - "+(feedback/10)+" bulls, "+(feedback%10)+" cows");
-            if (feedback == 40) {System.out.println("CONGRATULATIONS! YOU WIN! "+player); return;}
+            if (feedback == 40) {System.out.println("CONGRATULATIONS YOU WIN " +players[player]); return;}
         }
         System.out.println("You have run out of moves. The number was - "+target);
     }
