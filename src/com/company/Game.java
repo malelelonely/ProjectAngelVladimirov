@@ -50,7 +50,6 @@ class Game {
             int player = i % 2;
             System.out.print(i+". ");
             System.out.println(players[player] + " is your turn :");
-            boolean currentPlayerMove = true;
             String guess = in.next();
             int feedback = feedback(target, guess);
             System.out.println(guess+" - "+(feedback/10)+" bulls, "+(feedback%10)+" cows");
