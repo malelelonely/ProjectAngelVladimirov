@@ -15,12 +15,12 @@ class Game {
 
     public static String guessTheNumbers() {
         ArrayList<String> possible = new ArrayList<String>();
-        for (int a = 0; a <= 9; a++) {
-            for (int b = 0; b <= 9; b++) {
+        for (int a = 1; a <= 9; a++) {
+            for (int b = 1; b <= 9; b++) {
                 if (b == a) continue;
-                for (int c = 0; c <= 9; c++) {
+                for (int c = 1; c <= 9; c++) {
                     if (c == b || c == a) continue;
-                    for (int d = 0; d <= 9; d++) {
+                    for (int d = 1; d <= 9; d++) {
                         if (d == a || d == b || d == c) continue;
                         String numbersFound = ""+a+b+c+d;
                         possible.add(numbersFound);
@@ -53,7 +53,7 @@ class Game {
             String guess = in.next();
             int feedback = feedback(target, guess);
             System.out.println(guess+" - "+(feedback/10)+" bulls, "+(feedback%10)+" cows");
-            if (feedback == 40) {System.out.println("CONGRATULATIONS YOU WIN " +players[player]); return;}
+            if (feedback == 40) {System.out.println(players[player]+" congratulations, you are the winner!"); return;}
         }
         System.out.println("You have run out of moves. The number was - "+target);
     }
