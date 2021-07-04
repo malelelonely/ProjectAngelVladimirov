@@ -13,22 +13,22 @@ class Game {
         playGame(players);
     }
 
-    public static String getNumber() {
-        ArrayList<String> possib = new ArrayList<String>();
-        for (int a = 1; a <= 9; a++) {
-            for (int b = 1; b <= 9; b++) {
+    public static String guessTheNumbers() {
+        ArrayList<String> possible = new ArrayList<String>();
+        for (int a = 0; a <= 9; a++) {
+            for (int b = 0; b <= 9; b++) {
                 if (b == a) continue;
-                for (int c = 1; c <= 9; c++) {
+                for (int c = 0; c <= 9; c++) {
                     if (c == b || c == a) continue;
-                    for (int d = 1; d <= 9; d++) {
+                    for (int d = 0; d <= 9; d++) {
                         if (d == a || d == b || d == c) continue;
                         String cnt = ""+a+b+c+d;
-                        possib.add(cnt);
+                        possible.add(cnt);
                     }
                 }
             }
         }
-        String guess = possib.get((int)(Math.random() * possib.size()));
+        String guess = possible.get((int)(Math.random() * possible.size()));
         return guess;
     }
 
@@ -43,10 +43,10 @@ class Game {
     }
     public static void playGame(String[]players){
         Scanner in = new Scanner(System.in);
-        final String target = getNumber();
+        final String target = guessTheNumbers();
         System.out.println("You started the game  \"Bulls and Cows\".");
 
-        for (int i = 1; i <= 30; i++) {
+        for (int i = 1; i <= 50; i++) {
             int player = i % 2;
             System.out.print(i+". ");
             System.out.println(players[player] + " is your turn :");
