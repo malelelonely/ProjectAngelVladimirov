@@ -22,8 +22,8 @@ class Game {
                     if (c == b || c == a) continue;
                     for (int d = 0; d <= 9; d++) {
                         if (d == a || d == b || d == c) continue;
-                        String cnt = ""+a+b+c+d;
-                        possible.add(cnt);
+                        String numbersFound = ""+a+b+c+d;
+                        possible.add(numbersFound);
                     }
                 }
             }
