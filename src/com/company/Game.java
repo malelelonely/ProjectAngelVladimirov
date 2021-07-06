@@ -13,7 +13,7 @@ class Game {
         playGame(players);
     }
 
-    public static String guessTheNumbers() {
+    public static String generateRandomNumbers() {
         ArrayList<String> possible = new ArrayList<String>();
         for (int a = 1; a <= 9; a++) {
             for (int b = 1; b <= 9; b++) {
@@ -32,28 +32,27 @@ class Game {
         return guess;
     }
 
-    public static int feedback(String answer,String guess) {
+    public static int checkBullsOrCaws(String answer,String guess) {
         int bulls = 0, cows = 0;
         for (int i = 0; i < guess.length(); i++) {
             int index = answer.indexOf(guess.charAt(i));
             if (index == i) bulls++;
             else if (index >= 0) cows++;
         }
-        return bulls * 10 + cows;
+         return bulls * 10 + cows;
     }
     public static void playGame(String[]players){
         Scanner in = new Scanner(System.in);
-        final String target = guessTheNumbers();
+        final String target = generateRandomNumbers();
         System.out.println("You started the game  \"Bulls and Cows\".");
 
-        for (int i = 1; i <= 50; i++) {
+        for (int i = 0; i <= 50; i++) {
             int player = i % 2;
-            System.out.print(i+". ");
             System.out.println(players[player] + " is your turn :");
             String guess = in.next();
-            int feedback = feedback(target, guess);
-            System.out.println(guess+" - "+(feedback/10)+" bulls, "+(feedback%10)+" cows");
-            if (feedback == 40) {System.out.println(players[player]+" congratulations, you are the winner!"); return;}
+            int checkBullsOrCaws = checkBullsOrCaws(target, guess);
+            System.out.println(guess+" - "+(checkBullsOrCaws/10)+" bulls, "+(checkBullsOrCaws%10)+" cows");
+            if (checkBullsOrCaws == 40) {System.out.println(players[player]+" congratulations, you are the winner!"); return;}
         }
         System.out.println("You have run out of moves. The number was - "+target);
     }
